@@ -1,0 +1,55 @@
+<form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process.php">
+    <label for="Name" class="fcf-label">Convert To Upper</label>
+    <div class="fcf-input-group">
+        <input type="text" id="Name" name="Name" class="fcf-form-control" required>
+    </div>
+    <label for="result" class="fcf-label">Converted Result</label>
+    <div class="fcf-input-group">
+        <input disabled type="text" id="result" name="result" class="fcf-form-control" required>
+    </div>
+    <script>
+        document.getElementById("Name").addEventListener("change", myFunction);
+
+        function myFunction() {
+            var x = document.getElementById("Name");
+            var y = document.getElementById("result");
+            y.value = x.value.toUpperCase();
+
+        }
+    </script>
+    <div class="fcf-form-group">
+        <div class="fcf-form-group">
+          <center>  <button type="reset" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Reset form</button></center>
+        </div>
+    </div>
+
+    <style>
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=reset] {
+            background-color: #5DADE2;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .fcf-body {
+            font-family: -apple-system, Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #0000ff;
+            text-align: left;
+        }
+    </style>

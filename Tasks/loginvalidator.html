@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Full-width input fields */
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form onSubmit="return false;" class="modal-content animate">
+
+
+            <label for="uname"><b>Username</b></label>
+            <input type="text" required placeholder="Enter Username" name="uname" id="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" required placeholder="Enter Password" name="psw" id="psw" required>
+            <button type="submit" id="ValidatePassword">ValidatePassword</button>
+        </form>
+    </div>
+    <div>
+
+        Hash Value <label id="loginResult"> </label>
+    </div>
+
+
+    <script>
+        //  document.getElementById("ValidatePassword").addEventListener("onclick", ValidatePassword);
+
+
+        function ValidatePassword() {
+            var username = document.getElementById("uname").value;
+            var pwd = document.getElementById("psw").value;
+            if (username.length != 0 && pwd.length != 0) {
+                // console.log(username);
+                //console.log(pwd);
+
+
+
+                //code of the SHA1 function
+                function SHA1(msg) {
+                    function rotate_left(n, s) { var t4 = (n << s) | (n >>> (32 - s)); return t4; }; function lsb_hex(val) {
+                        var str = ''; var i; var vh; var vl; for (i = 0; i <= 6; i += 2) { vh = (val >>> (i * 4 + 4)) & 0x0f; vl = (val >>> (i * 4)) & 0x0f; str += vh.toString(16) + vl.toString(16); }
+                        return str;
+                    }; function cvt_hex(val) {
+                        var str = ''; var i; var v; for (i = 7; i >= 0; i--) { v = (val >>> (i * 4)) & 0x0f; str += v.toString(16); }
+                        return str;
+                    }; function Utf8Encode(string) {
+                        string = string.replace(/\r\n/g, '\n'); var utftext = ''; for (var n = 0; n < string.length; n++) {
+                            var c = string.charCodeAt(n); if (c < 128) { utftext += String.fromCharCode(c); }
+                            else if ((c > 127) && (c < 2048)) { utftext += String.fromCharCode((c >> 6) | 192); utftext += String.fromCharCode((c & 63) | 128); }
+                            else { utftext += String.fromCharCode((c >> 12) | 224); utftext += String.fromCharCode(((c >> 6) & 63) | 128); utftext += String.fromCharCode((c & 63) | 128); }
+                        }
+                        return utftext;
+                    }; var blockstart; var i, j; var W = new Array(80); var H0 = 0x67452301; var H1 = 0xEFCDAB89; var H2 = 0x98BADCFE; var H3 = 0x10325476; var H4 = 0xC3D2E1F0; var A, B, C, D, E; var temp; msg = Utf8Encode(msg); var msg_len = msg.length; var word_array = new Array(); for (i = 0; i < msg_len - 3; i += 4) { j = msg.charCodeAt(i) << 24 | msg.charCodeAt(i + 1) << 16 | msg.charCodeAt(i + 2) << 8 | msg.charCodeAt(i + 3); word_array.push(j); }
+                    switch (msg_len % 4) { case 0: i = 0x080000000; break; case 1: i = msg.charCodeAt(msg_len - 1) << 24 | 0x0800000; break; case 2: i = msg.charCodeAt(msg_len - 2) << 24 | msg.charCodeAt(msg_len - 1) << 16 | 0x08000; break; case 3: i = msg.charCodeAt(msg_len - 3) << 24 | msg.charCodeAt(msg_len - 2) << 16 | msg.charCodeAt(msg_len - 1) << 8 | 0x80; break; }
+                    word_array.push(i); while ((word_array.length % 16) != 14) word_array.push(0); word_array.push(msg_len >>> 29); word_array.push((msg_len << 3) & 0x0ffffffff); for (blockstart = 0; blockstart < word_array.length; blockstart += 16) {
+                        for (i = 0; i < 16; i++)W[i] = word_array[blockstart + i]; for (i = 16; i <= 79; i++)W[i] = rotate_left(W[i - 3] ^ W[i - 8] ^ W[i - 14] ^ W[i - 16], 1); A = H0; B = H1; C = H2; D = H3; E = H4; for (i = 0; i <= 19; i++) { temp = (rotate_left(A, 5) + ((B & C) | (~B & D)) + E + W[i] + 0x5A827999) & 0x0ffffffff; E = D; D = C; C = rotate_left(B, 30); B = A; A = temp; }
+                        for (i = 20; i <= 39; i++) { temp = (rotate_left(A, 5) + (B ^ C ^ D) + E + W[i] + 0x6ED9EBA1) & 0x0ffffffff; E = D; D = C; C = rotate_left(B, 30); B = A; A = temp; }
+                        for (i = 40; i <= 59; i++) { temp = (rotate_left(A, 5) + ((B & C) | (B & D) | (C & D)) + E + W[i] + 0x8F1BBCDC) & 0x0ffffffff; E = D; D = C; C = rotate_left(B, 30); B = A; A = temp; }
+                        for (i = 60; i <= 79; i++) { temp = (rotate_left(A, 5) + (B ^ C ^ D) + E + W[i] + 0xCA62C1D6) & 0x0ffffffff; E = D; D = C; C = rotate_left(B, 30); B = A; A = temp; }
+                        H0 = (H0 + A) & 0x0ffffffff; H1 = (H1 + B) & 0x0ffffffff; H2 = (H2 + C) & 0x0ffffffff; H3 = (H3 + D) & 0x0ffffffff; H4 = (H4 + E) & 0x0ffffffff;
+                    }
+                    var temp = cvt_hex(H0) + cvt_hex(H1) + cvt_hex(H2) + cvt_hex(H3) + cvt_hex(H4); return temp.toLowerCase();
+                }
+
+                document.getElementById("loginResult").innerHTML = SHA1(username + pwd);
+
+
+
+            }
+            else {
+                document.getElementById("loginResult").innerHTML = "empty";
+            }
+        }
+        document.getElementById("ValidatePassword").addEventListener("click", ValidatePassword);
+    </script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>usernames and passwords </title>
+</head>
+
+<body>
+    <div id="val"></div>
+
+    <script>
+
+
+
+        GenerateTable();
+
+        function GenerateTable() {
+            var customers = new Array();
+            customers.push(["userId", "Password", "Hash", "Validate", "Result"]);
+            //Create a HTML Table element.
+            var table = document.createElement("TABLE");
+
+            //Build an array containing Customer records.
+
+
+            //Get the count of columns.
+            var columnCount = customers[0].length;
+            //console.log("length is " + columnCount);
+            //Add the header row.
+            var row = table.insertRow(-1);
+
+            for (var i = 0; i < columnCount; i++) {
+                var headerCell = document.createElement("TH");
+                headerCell.innerHTML = customers[0][i];
+                row.appendChild(headerCell);
+            }
+
+
+            for (var i = 1; i <= 10; i++) {
+                //Add the data rows.
+                setTimeout(function () {
+
+                    fetch('https://randomuser.me/api/').then(response => {
+                        return response.json();
+                    }).then(data => {
+                        updateTable(data);
+                    });
+
+                }, 4000 * i);
+
+            }//console.log(data[i]);
+            var dvTable = document.getElementById("val");
+            dvTable.innerHTML = "";
+            dvTable.appendChild(table);
+
+
+            function updateTable(data) {
+                //console.log(data);     
+
+                row = table.insertRow(-1);
+                var unamecell = row.insertCell(-1);
+                unamecell.innerHTML = data.results[0].login.username;
+                var passcell = row.insertCell(-1);
+                passcell.innerHTML = data.results[0].login.password;
+
+                //add hash input field
+                var resultcell = row.insertCell(-1);
+                var resultInput = document.createElement("INPUT");
+                resultInput.style.width = "100%";
+                resultcell.appendChild(resultInput);
+
+                //add validate button
+                var validatecell = row.insertCell(-1);
+                var validateButton = document.createElement("Button");
+                validateButton.style.width = "100%";
+                validateButton.innerHTML = "Verify";
+                validateButton.addEventListener("click", verifyHash);
+                validatecell.appendChild(validateButton);
+
+                //add verification Result
+                var verificationResultcell = row.insertCell(-1);
+                var verificationLabel = document.createElement("Label");
+                verificationLabel.style.width = "100%";
+                verificationLabel.innerHTML = "NotVerified"
+                verificationResultcell.appendChild(verificationLabel);
+
+            }
+        }
+        function verifyHash(event) {
+            var source = event.target || event.srcElement;
+            var userId = source.parentElement.parentElement.childNodes[0].innerHTML;
+            var pwd = source.parentElement.parentElement.childNodes[1].innerHTML;
+            var hashresult = SHA1(userId + pwd);
+            var resultElement = source.parentElement.parentElement.childNodes[4].childNodes[0];
+            if (hashresult == source.parentElement.parentElement.childNodes[2].childNodes[0].value) {
+                resultElement.innerHTML = "verified";
+                resultElement.style.color = "green";
+            } else {
+                resultElement.innerHTML = "NotVerified";
+                resultElement.style.color = "Red";
+
+            }
+        }
+
+        //code of the SHA1 function
+        function SHA1(msg) {
+            function rotate_left(n, s) { var t4 = (n << s) | (n >>> (32 - s)); return t4; }; function lsb_hex(val) {
+                var str = ''; var i; var vh; var vl; for (i = 0; i <= 6; i += 2) { vh = (val >>> (i * 4 + 4)) & 0x0f; vl = (val >>> (i * 4)) & 0x0f; str += vh.toString(16) + vl.toString(16); }
+                return str;
+            }; function cvt_hex(val) {
+                var str = ''; var i; var v; for (i = 7; i >= 0; i--) { v = (val >>> (i * 4)) & 0x0f; str += v.toString(16); }
+                return str;
+            }; function Utf8Encode(string) {
+                string = string.replace(/\r\n/g, '\n'); var utftext = ''; for (var n = 0; n < string.length; n++) {
+                    var c = string.charCodeAt(n); if (c < 128) { utftext += String.fromCharCode(c); }
+                    else if ((c > 127) && (c < 2048)) { utftext += String.fromCharCode((c >> 6) | 192); utftext += String.fromCharCode((c & 63) | 128); }
+                    else { utftext += String.fromCharCode((c >> 12) | 224); utftext += String.fromCharCode(((c >> 6) & 63) | 128); utftext += String.fromCharCode((c & 63) | 128); }
+                }
+                return utftext;
+            }; var blockstart; var i, j; var W = new Array(80); var H0 = 0x67452301; var H1 = 0xEFCDAB89; var H2 = 0x98BADCFE; var H3 = 0x10325476; var H4 = 0xC3D2E1F0; var A, B, C, D, E; var temp; msg = Utf8Encode(msg); var msg_len = msg.length; var word_array = new Array(); for (i = 0; i < msg_len - 3; i += 4) { j = msg.charCodeAt(i) << 24 | msg.charCodeAt(i + 1) << 16 | msg.charCodeAt(i + 2) << 8 | msg.charCodeAt(i + 3); word_array.push(j); }
+            switch (msg_len % 4) { case 0: i = 0x080000000; break; case 1: i = msg.charCodeAt(msg_len - 1) << 24 | 0x0800000; break; case 2: i = msg.charCodeAt(msg_len - 2) << 24 | msg.charCodeAt(msg_len - 1) << 16 | 0x08000; break; case 3: i = msg.charCodeAt(msg_len - 3) << 24 | msg.charCodeAt(msg_len - 2) << 16 | msg.charCodeAt(msg_len - 1) << 8 | 0x80; break; }
+            word_array.push(i); while ((word_array.length % 16) != 14) word_array.push(0); word_array.push(msg_len >>> 29); word_array.push((msg_len << 3) & 0x0ffffffff); for (blockstart = 0; blockstart < word_array.length; blockstart += 16) {
+                for (i = 0; i < 16; i++)W[i] = word_array[blockstart + i]; for (i = 16; i <= 79; i++)W[i] = rotate_left(W[i - 3] ^ W[i - 8] ^ W[i - 14] ^ W[i - 16], 1); A = H0; B = H1; C = H2; D = H3; E = H4; for (i = 0; i <= 19; i++) { temp = (rotate_left(A, 5) + ((B & C) | (~B & D)) + E + W[i] + 0x5A827999) & 0x0ffffffff; E = D; D = C; C = rotate_left(B, 30); B = A; A = temp; }
+                for (i = 20; i <= 39; i++) { temp = (rotate_left(A, 5) + (B ^ C ^ D) + E + W[i] + 0x6ED9EBA1) & 0x0ffffffff; E = D; D = C; C = rotate_left(B, 30); B = A; A = temp; }
+                for (i = 40; i <= 59; i++) { temp = (rotate_left(A, 5) + ((B & C) | (B & D) | (C & D)) + E + W[i] + 0x8F1BBCDC) & 0x0ffffffff; E = D; D = C; C = rotate_left(B, 30); B = A; A = temp; }
+                for (i = 60; i <= 79; i++) { temp = (rotate_left(A, 5) + (B ^ C ^ D) + E + W[i] + 0xCA62C1D6) & 0x0ffffffff; E = D; D = C; C = rotate_left(B, 30); B = A; A = temp; }
+                H0 = (H0 + A) & 0x0ffffffff; H1 = (H1 + B) & 0x0ffffffff; H2 = (H2 + C) & 0x0ffffffff; H3 = (H3 + D) & 0x0ffffffff; H4 = (H4 + E) & 0x0ffffffff;
+            }
+            var temp = cvt_hex(H0) + cvt_hex(H1) + cvt_hex(H2) + cvt_hex(H3) + cvt_hex(H4); return temp.toLowerCase();
+        }
+
+
+
+
+    </script>
+    <style>
+        table,
+        td,
+        th {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            text-align: center;
+        }
+
+
+        td {
+            padding: 15px;
+            text-align: left;
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<p>Hello I need data to be scrapped and added to excel as rows and columns, please help me
+    Rules
+    Scrap all data
+    Data is delimited with "|"
+    Add data to excel
+    Add only completed = true items to output
+    Tip
+    After scrapping text use, Text to Table activity
+    </p>
+<p id="val"/> </p>  
+<script>
+console.log('it shows results as you type')
+const myElement = document.getElementById("val");
+ myElement.innerHTML='userId'+" | "+'id'+" | "+'title'+" | "+'completed';
+  
+fetch('https://jsonplaceholder.typicode.com/todos').then(response => {
+  return response.json();
+}).then(data => {
+  console.log(data[0]);
+
+  for (let i = 0; i < data.length; i++) {
+    const item = data[i];
+    let child_p_elem = document.createElement("p");
+    child_p_elem.innerHTML=data[i]['userId'] +" | "+ data[i]['id']+" | "+data[i]['title'] +" | "+ data[i]['completed'];
+  
+    myElement.appendChild(child_p_elem);
+  }
+  
+  //myElement.innerHTML = "Hello World!";
+
+})
+
+
+
+</script>

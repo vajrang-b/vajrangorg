@@ -1,0 +1,81 @@
+@{
+    ViewData["Title"] = "Table Data scraping";
+}
+
+<div class="text-center">
+        <!-- Page content-->
+<div id="val" style="overflow-x:auto;"> </div>
+<style>
+    table,
+    td,
+    th {
+        border: 1px solid black;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th{
+        text-align: center;
+    }
+
+    
+    td {
+        padding: 15px;
+        text-align: left;
+    }
+</style>
+<script>
+    GenerateTable();
+
+    function GenerateTable() {
+        //Build an array containing Customer records.
+        var customers = new Array();
+        customers.push(["userId", "id", "title", "completed"]);
+        //Create a HTML Table element.
+        var table = document.createElement("TABLE");
+        
+        
+        
+        //Get the count of columns.
+        var columnCount = customers[0].length;
+        //console.log("length is " + columnCount);
+        //Add the header row.
+        var row = table.insertRow(-1);
+        
+        for (var i = 0; i < columnCount; i++) {
+            var headerCell = document.createElement("TH");
+            headerCell.innerHTML = customers[0][i];
+            row.appendChild(headerCell);
+        }
+
+        //Add the data rows.
+        fetch('https://jsonplaceholder.typicode.com/todos').then(response => {
+            return response.json();
+        }).then(data => {
+            updateTable(data);
+        });
+        function updateTable(data) {
+            //console.log(data);
+            for (var i = 1; i < data.length; i++) {
+                //console.log(data[i]);
+                
+                row = table.insertRow(-1);
+                for (var j = 0; j < columnCount; j++) {
+                   // console.log(customers[0][j]);
+                    var cell = row.insertCell(-1);
+                    
+                    cell.innerHTML = data[i][customers[0][j]];
+                }
+            }
+        }
+        var dvTable = document.getElementById("val");
+        dvTable.innerHTML = "";
+        dvTable.appendChild(table);
+    }
+</script>
+
+ <!-- Page content-->
+</div >

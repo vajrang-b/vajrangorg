@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Uppercase";
+}
+
+<div class="text-center">
+    <!-- Page content-->
+    <form id="fcf-form-id" class="fcf-form-class">
+        <label for="Name" class="fcf-label">Convert To Upper</label>
+        <div class="fcf-input-group">
+            <input type="text" id="Name" name="Name" class="fcf-form-control" required>
+        </div>
+        <label for="result" class="fcf-label">Converted Result</label>
+        <div class="fcf-input-group">
+            <input type="text" id="result" name="result" class="fcf-form-control" readonly required>
+        </div>
+        <script>
+            document.getElementById("Name").addEventListener("input", function () {
+                var x = document.getElementById("Name");
+                var y = document.getElementById("result");
+                y.value = x.value.toUpperCase();
+            });
+        </script>
+        <div class="fcf-form-group text-center"> <!-- Center the button -->
+            <button type="reset" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">
+                Reset form
+            </button>
+        </div>
+    </form>
+</div>

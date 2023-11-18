@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\yesav\\.nuget\\packages\\": {}
+    "/home/codespace/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Uipath\\GitSpace\\vajrangorg\\vajrangorg.csproj",
+      "projectUniqueName": "/workspaces/vajrangorg/vajrangorg.csproj",
       "projectName": "vajrangorg",
-      "projectPath": "d:\\Uipath\\GitSpace\\vajrangorg\\vajrangorg.csproj",
-      "packagesPath": "C:\\Users\\yesav\\.nuget\\packages\\",
-      "outputPath": "d:\\Uipath\\GitSpace\\vajrangorg\\obj\\",
+      "projectPath": "/workspaces/vajrangorg/vajrangorg.csproj",
+      "packagesPath": "/home/codespace/.nuget/packages/",
+      "outputPath": "/workspaces/vajrangorg/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\yesav\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/codespace/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -62,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.1.23463.5/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/opt/dotnet/8.0.100/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -9,59 +9,59 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = vajrangorg
 build_property.RootNamespace = vajrangorg
-build_property.ProjectDir = d:\Uipath\GitSpace\vajrangorg\
+build_property.ProjectDir = /workspaces/vajrangorg/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = d:\Uipath\GitSpace\vajrangorg
+build_property.MSBuildProjectDirectory = /workspaces/vajrangorg
 build_property._RazorSourceGeneratorDebug = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/Home/DownloadFiles.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEb3dubG9hZEZpbGVzLmNzaHRtbA==
+[/workspaces/vajrangorg/Views/Home/DownloadFiles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Eb3dubG9hZEZpbGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[/workspaces/vajrangorg/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/Home/Loginvalidator.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbnZhbGlkYXRvci5jc2h0bWw=
+[/workspaces/vajrangorg/Views/Home/Loginvalidator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Mb2dpbnZhbGlkYXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[/workspaces/vajrangorg/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/Home/Tabledatascraping.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUYWJsZWRhdGFzY3JhcGluZy5jc2h0bWw=
+[/workspaces/vajrangorg/Views/Home/Tabledatascraping.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9UYWJsZWRhdGFzY3JhcGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/Home/Textdatascraping.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUZXh0ZGF0YXNjcmFwaW5nLmNzaHRtbA==
+[/workspaces/vajrangorg/Views/Home/Textdatascraping.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9UZXh0ZGF0YXNjcmFwaW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/Home/Uppercase.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVcHBlcmNhc2UuY3NodG1s
+[/workspaces/vajrangorg/Views/Home/Uppercase.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9VcHBlcmNhc2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[/workspaces/vajrangorg/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/workspaces/vajrangorg/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/workspaces/vajrangorg/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[/workspaces/vajrangorg/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Uipath/GitSpace/vajrangorg/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-ohg8b3wp05
+[/workspaces/vajrangorg/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-b2o4bkomwq

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T5sFKdlliqGYOhMFjO2nEDERJ6ClWcg0vjR9ssIMXfxskixLKK8HaE7cg3ftQjJ98Sf8FcBAlqsSMRBZaeiMjA==",
+  "dgSpecHash": "Gci9DiRj3Ko3oAdZKHqYxlMEo5nBb6LI8SpO+K6mQ83wXnQxiWAuhedEUYVP7aL/AWsUtMojYnsaiRr3sCp18Q==",
   "success": true,
-  "projectFilePath": "D:\\Uipath\\GitSpace\\vajrangorg\\vajrangorg.csproj",
+  "projectFilePath": "/workspaces/vajrangorg/vajrangorg.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

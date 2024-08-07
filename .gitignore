@@ -1,1 +1,52 @@
-node_modules/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.eggs/
+dist/
+build/
+develop-eggs/
+sdist/
+pip-egg-info/
+
+# Django stuff
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff
+.env
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Virtual environment
+venv/
+
+# Testing
+.coverage
+coverage.xml
+.pytest_cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Other
+*.pyc
+*.pyo
+*.swp
+*~
+
+# For production
+.env.prod

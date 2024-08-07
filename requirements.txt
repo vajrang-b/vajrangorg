@@ -1,0 +1,2 @@
+Flask==flask-3.0.3  # Use the latest version or a specific version
+python-dotenv==0.19.2 
